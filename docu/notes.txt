@@ -1,0 +1,46 @@
+02-03-17 
+
+STARTING FROM REST:
+-changed test case 5 to having initial flow = 0.0 everywhere but no other changes to the code
+should show no changes since no wind flow and constant free surface height 
+but there are some significant winds going westward near the poles (e.g. around 10m/s after
+around 10 days)
+note- maybe this is a rounding error that has propagated through- decreasing timestep makes
+it worse e.g. after 9 days with timestep 1200s have magnitudes of up to 5m/s but with 
+600s have magnitudes of around 15m/s
+
+
+
+WITH INITIAL WIND SPEEDS:
+wind appears to flow eastward near poles in all simulations which should be in gradient 
+wind balance- should be steady? this happens after around 10 days in the following cases:
+
+-Test case 5 without mountains ( reset MOUNT(I,J)=0.0 for all lon and lat)
+where:
+zonal wind speed U = UBAR*COS(LAT)
+UBAR = 20 
+free surface height PHI = PHI0 - PHIAMP*SIN(LAT)**2/GRAV
+with free surface height PHI0 = 5960
+and PHIAMP is amplitude of phi (so divide by gravity to get surface height) in order to keep
+flow in gradient wind balance 
+PHIAMP = A*OMEGA*BAR + (UBAR**2)/2.0 
+Checked this is in gradient wind balance by integrating equation 11 in Thuburn and Lagneau 1999
+(f+u*tan(lat)/a) * u = -g/a * d(h+mountains)/d(lat) 
+
+ 
+-Test case 2 with same initial conditions as 5 and with alpha = 0.0 (just to check it wasnt
+something to do with mountains) and saw same results
+
+
+Also changing timestep changes magnitude of results significantly: smaller timestep gives larger
+speeds near poles- maybe this is a truncation error due to initially small speeds near the poles
+(due to ubar*cos(lat) ) which might propagate in time with more timesteps = bigger error
+
+
+
+
+
+Note also forcing term does not seem correct:
+by printing PHI it appears that PHI is PHI'=PHI-PHIBAR 
+so PHIBAR is added back on. Then must also times h_rad = 4000 by g  phi forcing = g* hforcing
+Then divide by TAURAD = 1 day in units of seconds 

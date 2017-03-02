@@ -152,6 +152,11 @@ C
       RLON0 = -90.0*(PI/180.0)
       RLAT0 = + 0.0*(PI/180.0)
 C
+C     TO COMPARE TO TEST CASE 5, USE SAME INITIAL CONDITIONS HERE:
+C      UBAR = 20.0
+C      PHI0 = 5690.0*GRAV
+C
+C     ORIGINAL INITIAL CONDITIONS FOR 2:
       UBAR = (2.0*PI*A)/(12.0*24.0*3600.0)
       PHI0 = 2.94E4
 C
@@ -377,7 +382,7 @@ C
 C
 C           TEMPORARY COPY FOR SPECTRAL TRANSFORM
 C
-            PIC12(I,J)=MOUNT(I,J)  
+            PIC12(I,J)=MOUNT(I,J)
    40    CONTINUE
    50 CONTINUE
 C
@@ -394,6 +399,8 @@ C
       COSA = 1.0
       ETAAMP = 2.0*(UBAR/A + OMEGA)
       PHIAMP = A*OMEGA*UBAR + (UBAR**2)/2.0
+      WRITE(6,*) PHIAMP
+C
       DO 295 I=1,NLON
          RLON = GLON(I)
          SINL = SIN(RLON)
@@ -416,6 +423,8 @@ C
             EIC12(I,J) = ETAAMP*SINT
   290    CONTINUE
   295 CONTINUE
+C
+      WRITE (6,*) PIC12
 C
       RETURN
 C
@@ -483,7 +492,7 @@ C     SET MOUNTAIN SURFACE
 C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
-      MOUNTA = 2000.0
+      MOUNTA = 2500.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
@@ -499,9 +508,9 @@ C
             ENDIF   
             HC = SIN(RLON)
             HASYM = 720.0*HB*HC
-C            MOUNT(I,J) = HSYM
-            MOUNT(I,J) = 0.0
-C            PIC12(I,J) = MOUNT(I,J)
+            MOUNT(I,J) = HSYM
+C            MOUNT(I,J) = 0.0
+            PIC12(I,J) = MOUNT(I,J)
  805     CONTINUE 
   810 CONTINUE
 C                                                                 
@@ -513,13 +522,16 @@ C
 C     INITIAL CONDITIONS
 C
       PHI0 = 4000.0
-      UBAR = 5.0
+      UBAR = 0.0
 C
 C
       SINA = 0.0
       COSA = 1.0
       ETAAMP = 2.0*(UBAR/A + OMEGA)
       PHIAMP = A*OMEGA*UBAR + (UBAR**2)/2.0
+      WRITE (6,*) PHI0, PHIAMP
+C
+C
       DO 820 I=1,NLON
          RLON = GLON(I)
          SINL = SIN(RLON)
@@ -532,25 +544,24 @@ C           LATITUDE = RLAT = GLAT(J)
 C
             SINT = SIN(RLAT)
             COST = COS(RLAT)
-C            UIC12(I,J) = UBAR*COST
-C            UIC12(I,J) = 5.0*COST + 4.0*33.0*(SINT**2)*(COST**3)
-            UIC12(I,J) = 5.0*COST
+            UIC12(I,J) = UBAR*COST
             VIC12(I,J) = 0.0
 C
 C           FREE SURFACE HEIGHT (INCLUDE MOUNTAINS)
 C
-C            PIC12(I,J) = PHI0-PHIAMP*SINT**2/GRAV
+            PIC12(I,J) = PHI0-PHIAMP*SINT**2/GRAV
 C           PIC12(I,J) = PHI0
 C            PIC12(I,J) = PHI0 + (25/(2*GRAV) + OMEGA*A*5/GRAV)*(COST)**2
 C     $      +(4*33*5/(192*GRAV)+4*A*33/GRAV)*(9*COS(2*RLAT)-COS(6*RLAT))
 C     $      +(16*33*33/(153600*GRAV))*(150*(COS(2*RLAT))-25*COS(6*RLAT)
 C     $      +3*COS(10*RLAT))
-            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
+C            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
             DIC12(I,J) = 0.0
             EIC12(I,J) = ETAAMP*SINT
  815    CONTINUE
  820  CONTINUE
 C
+C      WRITE (6,*) PIC12
       RETURN
 C
 C----------------------------------------------------------------------

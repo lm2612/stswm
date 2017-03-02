@@ -86,13 +86,19 @@ C     TAURAD = 1 DAY , HRAD = 4000.0
          TAURAD = 24.0*3600.0
          HRAD = 4000.0
 C
+C     PHIFCG IS G*H-FORCING
+C     NEED TO TRANSFORM HRAD INTO PHI VARIABLE (GRAV*HRAD)
+C     PHI ARRAY IS CURRENTLY PHI'=PHI-PHIBAR (SEE STSWM CODE
+C     BEFORE IT CALLS STEP) SO NEED PHI = PHI'+PHIBAR
+C
          DO 810 J=1,NLAT
             RLAT = GLAT(J)
             DO 805 I=1,NLON
                RLON = GLON(I)
                ETAFCG(I,J) = 0.0
                DIVFCG(I,J) = 0.0
-               PHIFCG(I,J) = (HRAD - PHI(I,J,LN))/TAURAD
+C               PHIFCG(I,J) = (GRAV*HRAD-(PHI(I,J,LN)+PHIBAR))/TAURAD
+               PHIFCG(I,J) = (HRAD - PHI(I,J,LN) )/TAURAD
  805        CONTINUE
  810      CONTINUE
 C
