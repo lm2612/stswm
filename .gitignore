@@ -1,0 +1,14 @@
+
+*.o
+*~
+*gridout*
+*specout*
+*stdout*
+*stderr*
+cray*
+*core*
+*.pdf
+*.tex
+*.bib
+*.tgz
+stswm
