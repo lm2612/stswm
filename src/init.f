@@ -74,6 +74,7 @@ C
 C----- Executable Statements -------------------------------------------
 C
 C     DETERMINE WHICH INITIAL CONDITION TO USE                                  
+      ICOND = 8
 C                                                                               
       IF (ICOND .EQ. 1) THEN
 C
@@ -393,6 +394,7 @@ C
 C     INITIAL CONDITIONS
 C
       PHI0 = 5960.0
+C     ONLY THING CHANGED IS UBAR WAS 20M/S, NOW SET TO 0:
       UBAR = 0.0
 C
       SINA = 0.0
@@ -424,7 +426,7 @@ C
   290    CONTINUE
   295 CONTINUE
 C
-      WRITE (6,*) PIC12
+C      WRITE (6,*) PIC12
 C
       RETURN
 C
@@ -492,7 +494,7 @@ C     SET MOUNTAIN SURFACE
 C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
-      MOUNTA = 2500.0
+      MOUNTA = 1000.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))

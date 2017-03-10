@@ -244,6 +244,7 @@ C     WRITE MEAN GEOPOTENTIAL
 C
       WRITE(6,135) PHIBAR
   135 FORMAT(/,' GLOBAL MEAN STEADY GEOPOTENTIAL = ',1PE16.9)
+      WRITE(6,*) ICOND
 C
 C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 C     PLOT INITIAL FIELDS

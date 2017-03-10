@@ -97,8 +97,8 @@ C
                RLON = GLON(I)
                ETAFCG(I,J) = 0.0
                DIVFCG(I,J) = 0.0
-C               PHIFCG(I,J) = (GRAV*HRAD-(PHI(I,J,LN)+PHIBAR))/TAURAD
-               PHIFCG(I,J) = (HRAD - PHI(I,J,LN) )/TAURAD
+               PHIFCG(I,J) = (GRAV*HRAD-(PHI(I,J,LN)+PHIBAR))/TAURAD
+C               PHIFCG(I,J) = (HRAD - PHI(I,J,LN) )/TAURAD
  805        CONTINUE
  810      CONTINUE
 C

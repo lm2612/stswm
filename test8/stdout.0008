@@ -24,7 +24,8 @@
  MAX. WIND      =  0.000000000E+00
  COURANT NUMBER = 0.0000
 
- GLOBAL MEAN STEADY GEOPOTENTIAL =  1.698900195E+04
+ GLOBAL MEAN STEADY GEOPOTENTIAL =  3.033020703E+04
+   8
 
  CONSERVATION ANALYSIS FOLLOWS FOR NSTEP =    0, TAU =   0.00 HRS
 
@@ -32,189 +33,18 @@
  GRIDPOINT LATITUDE    =    40.46
  GRIDPOINT LONGITUDE   =   255.94
 
- MASS                  =  1.732515747E+03
- TOTAL ENERGY          =  5.203264400E+07
+ MASS                  =  3.093000488E+03
+ TOTAL ENERGY          =  7.422258400E+07
  VORTICITY             = -1.946887096E-12
  DIVERGENCE            =  0.000000000E+00
- POTENTIAL ENSTROPHY   =  1.955022082E-12
+ POTENTIAL ENSTROPHY   =  1.116537526E-12
  GRIDPOINT HEIGHT      =  4.000000000E+03
 
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP =  864, TAU =  24.00 HRS
+ CONSERVATION ANALYSIS FOLLOWS FOR NSTEP =   12, TAU =   1.00 HRS
 
- MASS                  =  1.997042969E+03
- TOTAL ENERGY          =  6.333734400E+07
- VORTICITY             = -1.977367390E-07
- DIVERGENCE            = -4.903407813E-08
- POTENTIAL ENSTROPHY   =  1.866288374E-12
- GRIDPOINT HEIGHT      =  4.057486816E+03
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 1728, TAU =  48.00 HRS
-
- MASS                  =  2.118592773E+03
- TOTAL ENERGY          =  6.933148000E+07
- VORTICITY             = -2.422530372E-07
- DIVERGENCE            = -5.726780827E-08
- POTENTIAL ENSTROPHY   =  2.006894434E-12
- GRIDPOINT HEIGHT      =  4.229879883E+03
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 2592, TAU =  72.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 3456, TAU =  96.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 4320, TAU = 120.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 5184, TAU = 144.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 6048, TAU = 168.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 6912, TAU = 192.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 7776, TAU = 216.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 8640, TAU = 240.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = 9504, TAU = 264.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 288.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 312.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 336.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 360.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 384.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 408.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 432.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 456.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
-
- CONSERVATION ANALYSIS FOLLOWS FOR NSTEP = ****, TAU = 480.00 HRS
-
- MASS                  = -NaN            
- TOTAL ENERGY          = -NaN            
- VORTICITY             = -NaN            
- DIVERGENCE            = -NaN            
- POTENTIAL ENSTROPHY   = -NaN            
- GRIDPOINT HEIGHT      = -NaN            
+ MASS                  =  3.092999756E+03
+ TOTAL ENERGY          =  7.422248000E+07
+ VORTICITY             = -8.824940778E-12
+ DIVERGENCE            =  2.095190861E-11
+ POTENTIAL ENSTROPHY   =  1.116483316E-12
+ GRIDPOINT HEIGHT      =  3.999967285E+03

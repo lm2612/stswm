@@ -116,7 +116,7 @@ CRAYLIBS= 	-L /lib,/usr/lib,/usr/local/lib \
 		$(D01AHE) $(FFT) $(NETCDF) $(GRAPHICS) 
 IBMLIBS=	-L /lib,/usr/lib,/usr/local/lib \
 		$(D01AHE) $(FFT) $(NETCDF) $(GRAPHICS)
-COMMAND=	stswm
+COMMAND=	~/bin/stswm
 #
 # Lines from here on down should not need to be changed.  They are the
 # actual rules which make uses to build stswm.
