@@ -105,7 +105,7 @@ SUNFC= 		f77
 IBMFC=		xlf
 CRAYFFLAGS= 	-Wf"-eisz" -Zv \
                 -Wd"-Iglat,glon,weight -Sglat.f,glon.f,weight.f"
-SUNFFLAGS= 	-g 
+SUNFFLAGS= 	-g -w -f -xtypemap=real:64,integer:32 -ftrap=common
 IBMFFLAGS=	
 CRAYLDR=	segldr -f indef 
 SUNLDR=         f77
@@ -263,7 +263,7 @@ d2bubf.o:                                     case4.i
 epslon.o: 
 erranl.o: params.i consts.i                   finit.i
 eval.o:   params.i
-force.o:  params.i consts.i          wrkspc.i finit.i
+force.o:  params.i consts.i          wrkspc.i finit.i tdvars.i
 ftrnde.o: params.i          trnsfm.i
 ftrndi.o: params.i          trnsfm.i
 ftrnex.o: params.i consts.i trnsfm.i wrkspc.i finit.i tdvars.i
