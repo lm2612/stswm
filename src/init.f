@@ -74,7 +74,6 @@ C
 C----- Executable Statements -------------------------------------------
 C
 C     DETERMINE WHICH INITIAL CONDITION TO USE                                  
-      ICOND = 8
 C                                                                               
       IF (ICOND .EQ. 1) THEN
 C
@@ -494,7 +493,7 @@ C     SET MOUNTAIN SURFACE
 C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
-      MOUNTA = 2500.0
+      MOUNTA = 1500.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
@@ -515,6 +514,7 @@ C            MOUNT(I,J) = 0.0
             PIC12(I,J) = MOUNT(I,J)
  805     CONTINUE 
   810 CONTINUE
+C
 C                                                                 
 C     COPIED FROM TEST5 SECTION:
 C     COMPUTE SPECTRAL COEFFICIENTS
@@ -523,7 +523,7 @@ C
 C
 C     INITIAL CONDITIONS
 C
-      PHI0 = 4000.0
+      PHI0 = 5000.0
       UBAR = 0.0
 C
 C
@@ -563,7 +563,7 @@ C            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
  815    CONTINUE
  820  CONTINUE
 C
-C      WRITE (6,*) PIC12
+C      WRITE(6,'(8E15.6)') MOUNT
       RETURN
 C
 C----------------------------------------------------------------------
