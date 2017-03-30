@@ -18,12 +18,12 @@ C
       INCLUDE 'params.i'
 C
 C---- Common Blocks ----------------------------------------------------
-C INCLUDE TIME DEPENDENT VARIABLES
-      INCLUDE 'tdvars.i'
 C CONSTANTS & TIMESTEPS
       INCLUDE 'consts.i'
 C INITIAL CONDITIONS CASE 4
       INCLUDE 'finit.i'
+C INCLUDE TIME DEPENDENT VARIABLES
+      INCLUDE 'tdvars.i'
       INCLUDE 'case4.i'
 C
 C------------ Arguments ------------------------------------------------
@@ -63,7 +63,7 @@ C
       INTEGER I,J
       REAL TMSHFT, DFDM, AI, A2I, RLAT, SNJ, CSJ, COR, SRCSJ,
      $     TMPRY, CSJI, CSJ2I, ACSJI, AACSJI, ACSJ2I, RLON,
-     $     TAURAD, HRAD
+     $     TAURAD, HRAD, PHITEMPORARY
 C
 C----- External Functions ----------------------------------------------
 C
@@ -80,25 +80,29 @@ C
 C----- Executable Statements -------------------------------------------
 C
 C     
-      IF (ICOND .EQ. 8) THEN 
+      IF (ICOND .NE. 4) THEN 
 C
 C     TAURAD = 1 DAY , HRAD = 4000.0
          TAURAD = 24.0*3600.0
          HRAD = 4000.0
+C         HRAD = 23171.0/GRAV 
 C
-C     PHIFCG IS G*H-FORCING
+C     PHIFCG IS G*H-FORCING (FLUID DEPTH FORCING)
 C     NEED TO TRANSFORM HRAD INTO PHI VARIABLE (GRAV*HRAD)
 C     PHI ARRAY IS CURRENTLY PHI'=PHI-PHIBAR (SEE STSWM CODE
 C     BEFORE IT CALLS STEP) SO NEED PHI = PHI'+PHIBAR
 C
+C         WRITE(6,'(3E15.6)') PHIBAR,HRAD,TAURAD
+C         WRITE(6,'(8E15.6)') PHI
          DO 810 J=1,NLAT
             RLAT = GLAT(J)
             DO 805 I=1,NLON
                RLON = GLON(I)
                ETAFCG(I,J) = 0.0
                DIVFCG(I,J) = 0.0
-               PHIFCG(I,J) = (GRAV*HRAD-(PHI(I,J,LN)+PHIBAR))/TAURAD
-C               PHIFCG(I,J) = (HRAD - PHI(I,J,LN) )/TAURAD
+               PHITEMPORARY=PHI(I,J,LN)+PHIBAR
+               PHIFCG(I,J) =(GRAV*HRAD-PHITEMPORARY)/TAURAD
+C               PHIFCG(I,J) = -PHI(I,J,LN)/TAURAD
  805        CONTINUE
  810      CONTINUE
 C
@@ -331,5 +335,5 @@ C
 C                                
       ENDIF
 C
-      RETURN                                                                    
+      RETURN
       END                                                                       
