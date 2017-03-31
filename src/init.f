@@ -493,7 +493,7 @@ C     SET MOUNTAIN SURFACE
 C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
-      MOUNTA = 1500.0
+      MOUNTA = 2000.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
@@ -523,7 +523,7 @@ C
 C
 C     INITIAL CONDITIONS
 C
-      PHI0 = 5000.0
+      PHI0 = 4000.0
       UBAR = 0.0
 C
 C
@@ -563,7 +563,7 @@ C            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
  815    CONTINUE
  820  CONTINUE
 C
-C      WRITE(6,'(8E15.6)') MOUNT
+      WRITE(6,'(8E15.6)') MOUNT
       RETURN
 C
 C----------------------------------------------------------------------
