@@ -563,7 +563,7 @@ C            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
  815    CONTINUE
  820  CONTINUE
 C
-      WRITE(6,'(8E15.6)') MOUNT
+C      WRITE(6,'(8E15.6)') MOUNT
       RETURN
 C
 C----------------------------------------------------------------------
