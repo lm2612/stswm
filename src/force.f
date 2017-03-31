@@ -84,9 +84,11 @@ C
 C
 C     TAURAD = 1 DAY , HRAD = 4000.0
          TAURAD = 24.0*3600.0
-         HRAD = 4000.0
-C         HRAD = 23171.0/GRAV 
-C
+         IF (ICOND .EQ. 2) THEN
+            HRAD = 23171.0/GRAV
+         ELSE IF (ICOND .EQ. 8) THEN
+            HRAD = 4000.0
+         ENDIF
 C     PHIFCG IS G*H-FORCING (FLUID DEPTH FORCING)
 C     NEED TO TRANSFORM HRAD INTO PHI VARIABLE (GRAV*HRAD)
 C     PHI ARRAY IS CURRENTLY PHI'=PHI-PHIBAR (SEE STSWM CODE
@@ -100,8 +102,8 @@ C         WRITE(6,'(8E15.6)') PHI
                RLON = GLON(I)
                ETAFCG(I,J) = 0.0
                DIVFCG(I,J) = 0.0
-               PHITEMPORARY=PHI(I,J,LN)+PHIBAR
-               PHIFCG(I,J) =(GRAV*HRAD-PHITEMPORARY)/TAURAD
+               PHITEMPORARY=PHI(I,J,LNM1)+PHIBAR
+               PHIFCG(I,J)=(GRAV*(HRAD)-PHITEMPORARY)/TAURAD
 C               PHIFCG(I,J) = -PHI(I,J,LN)/TAURAD
  805        CONTINUE
  810      CONTINUE
