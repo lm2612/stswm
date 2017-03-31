@@ -21,11 +21,19 @@ C*    ICOND=NUMBER OF TEST CASE, LGPHS=.TRUE. FOR  PLOTTING OUTPUT,    *
 C*    FTOPO=.TRUE. IF SURFACE TOPOGRAPHY (MOUNT .NE. 0),               *
 C*    FNIN/FNOUT=FILENAMES FOR INPUT/OUTPUT OF SPECTRAL COEFFICIENTS,  *
 C*    CHEXP=EXPERIMENT #,STRUNC=SPECTRAL TRUNCATION TYPE               *
+C*                                                                     *
+C*
+C*    ADDED BY LAURA MANSFIELD 31.03.17:                               *
+C*    HRAD= RADIATIVE FLUID DEPTH IN FORCE.F THE FLUID DEPTH IS FORCED *
+C*    TOWARDS THIS VALUE.                                              *
+C*    TAURAD= TIMESCALE OVER WHICH THE FLUID DEPTH IS FORCED -ALSO     *
+C*    USED IN FORCE.F                                                  *
 C***********************************************************************
       REAL
      $      A, OMEGA, GRAV, DT, AFC, EPS, 
      $      TAU, TAUO, TAUE, GPHFRQ,
-     $      HDC, ALPHA, EGYFRQ, ERRFRQ, SPCFRQ
+     $      HDC, ALPHA, EGYFRQ, ERRFRQ, SPCFRQ,
+     $      HRAD, TAURAD 
       INTEGER
      $      NSTEP, ICOND
       LOGICAL
@@ -36,7 +44,8 @@ C***********************************************************************
       COMMON  / CONSTS / 
      $      A, OMEGA, GRAV, DT, AFC, EPS,  
      $      TAU, TAUO, TAUE, GPHFRQ, 
-     $      HDC, ALPHA, EGYFRQ, ERRFRQ, SPCFRQ
+     $      HDC, ALPHA, EGYFRQ, ERRFRQ, SPCFRQ,
+     $      HRAD, TAURAD
       COMMON  / CONSTS / 
      $      NSTEP, ICOND
       COMMON  / CONSTS / 
