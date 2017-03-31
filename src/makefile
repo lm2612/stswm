@@ -4,6 +4,10 @@ SHELL=/bin/sh
 # Version 2.0    August 1992
 # Ruediger Jakob
 #
+# REVISIONS:
+# JAN 2017 JOHN METHVEN ADDED PRGRIDP.F AND OUTSPEC.F 
+# MARCH 2017 LAURA MANSFIELD ADDED MOUNTN.F, EDITED FORCE.F
+#
 # The command 
 #
 # make
@@ -68,7 +72,8 @@ SRCS=   advect.f     agpwrt.f     anlytc.f     bf2.f        bubfnc.f \
 	labtop.f     nrgtcs.f     ordleg.f     ortho.f      outptp.f \
 	plots.f      prnt.f       rotate.f     shader.f     shtrns.f \
 	spcanl.f     step.f       stswm.f      us.f         uv.f     \
-	velvct.f     weight.f     zd.f         prgridp.f    outspec.f
+	velvct.f     weight.f     zd.f         prgridp.f    outspec.f\
+	mountn.f
 
 OBJS=   advect.o     agpwrt.o     anlytc.o     bf2.o        bubfnc.o \
 	calp.o       ceps.o       comp1.o      cpcnrc.o     cpmpxy.o \
@@ -81,7 +86,8 @@ OBJS=   advect.o     agpwrt.o     anlytc.o     bf2.o        bubfnc.o \
 	labtop.o     nrgtcs.o     ordleg.o     ortho.o      outptp.o \
 	plots.o      prnt.o       rotate.o     shader.o     shtrns.o \
 	spcanl.o     step.o       stswm.o      us.o         uv.o     \
-	velvct.o     weight.o     zd.o         prgridp.o    outspec.o
+	velvct.o     weight.o     zd.o         prgridp.o    outspec.o\
+	mountn.o
 
 #
 # Tunable parameters
@@ -281,6 +287,7 @@ init.o:   params.i consts.i                   finit.i
 inptp.o:           consts.i netcdf.inc
 input.o:  params.i consts.i trnsfm.i                           complt.i
 labtop.o:
+mountn.o: params.i consts.i	              finit.i
 nrgtcs.o: params.i consts.i
 ordleg.o:
 ortho.o:  params.i          trnsfm.i wrkspc.i
