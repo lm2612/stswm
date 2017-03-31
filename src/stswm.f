@@ -312,6 +312,15 @@ C
 C
       ELSE
 C
+C     FOR POLAR VORTEX(TEST8), MOUNT CHANGES EACH TIMESTEP
+C
+         IF (ICOND .EQ. 8) THEN
+C        EDIT MOUNTAIN HEIGHT IF MORE THAN 20 DAYS
+            IF (TAU .GE. 20.0*24.0) THEN
+               CALL MOUNTN
+            ENDIF
+         ENDIF
+C
 C        COMPUTE NEXT TIMESTEP
 C
          CALL STEP  
