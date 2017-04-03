@@ -256,7 +256,7 @@ C
   100    CONTINUE 
   101 CONTINUE
 C                                                                               
-      ELSEIF ((CASE .EQ. 5) .AND. (TIME .EQ. 0.0)) THEN
+      ELSEIF ((CASE .EQ. 5).OR.(CASE .EQ. 8).AND.(TIME .EQ. 0.0)) THEN
 C
 C-------- INITIAL CONDITION #5 ---------------------------------------
 C
@@ -349,27 +349,6 @@ C
   450    CONTINUE
   451 CONTINUE
 C
-      ELSEIF ((CASE .EQ. 8) .AND. (TIME .EQ. 0.0)) THEN
-C--------------TEST 8 ---------------------------------------------
-C                                                                                                                       
-C     POLAR VORTEX: USE SAME AS TEST 5 HERE:                                                                           
-C                                                                                                                       
-C     COPY INITIAL DATA                                                                                                 
-C                                                                                                                       
-      DO 821 J=1,NLAT
-         DO 820 I=1,NLON
-C                                                                                                                        
-C           LONGITUDE = RLON = GLON(I)                                                                                   
-C           LATITUDE = RLAT = GLAT(J)                                                                                    
-C                                                                                                                        
-            DICLL(I,J,LN) = DIC12(I,J)
-            EICLL(I,J,LN) = EIC12(I,J)
-            UICLL(I,J)    = UIC12(I,J)
-            VICLL(I,J)    = VIC12(I,J)
-            PICLL(I,J)    = PIC12(I,J)
- 820            CONTINUE
- 821             CONTINUE
-
 C--------------------LAST CASE ----------------------------------
 C
       ELSE
