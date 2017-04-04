@@ -70,7 +70,7 @@ C
       MOUNTA = 2000.0
       DO 200 J=1,NLAT
          RLAT = GLAT(J)
-         HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0)**2)))
+         HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
          DO 100 I=1,NLON
             RLON = GLON(I)
 C     TIME DEPENDENT TERM (A)
@@ -85,7 +85,7 @@ C     LATITUDE DEPENDENT TERM (B)
             IF (RLAT .GT. 0.0) THEN
                COST = COS(RLAT)
                SINT = SIN(RLAT)
-               HBAMP=((COST/SINT)*(SIN(PI/4.0)/COS(PI/4.0))**2)
+               HBAMP=((COST/SINT)*(SIN(PI/4.0)/COS(PI/4.0)))**2
                HB = HBAMP*EXP(1-HBAMP)
             ELSE
                HB = 0.0
@@ -97,10 +97,11 @@ C     LONGITUDE DEPENDENT TERM (C)
  100      CONTINUE
  200    CONTINUE
 C
-C     UPDATE SPECTRAL COEFFICIENTS:
+C     UPDATE SPECTRAL COEFFICIENTS
 C        CALL SHTRNS(1,1,-1,MOUNT,TOPOSC)
 C
-C       
+C        WRITE(6,'(8E15.6)') MOUNT
+C      
         RETURN
 C
 C
