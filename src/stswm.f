@@ -251,7 +251,7 @@ C     PLOT INITIAL FIELDS
 C    
       GCTR = 1
       CALL PLOTS(0,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN)
-      CALL PRGRIDP(WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN,GCTR)
+      CALL PRGRIDP(MOUNT,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN,GCTR)
 C
 C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''        
@@ -312,13 +312,10 @@ C
 C
       ELSE
 C
-C     FOR POLAR VORTEX(TEST8), MOUNT CHANGES EACH TIMESTEP
-C
-         IF (ICOND .EQ. 8) THEN
-C        EDIT MOUNTAIN HEIGHT IF MORE THAN 20 DAYS
-            IF (TAU .GE. 20.0*24.0) THEN
-               CALL MOUNTN
-            ENDIF
+C        RECALCULATE MOUNT FOR CASE 8 IF MORE THAN 20 DAYS
+         IF ((ICOND .EQ. 8) .AND. (TAU .GE. 20.0*24.0)) THEN
+            CALL MOUNTN
+            TAURAD = 20.0*24.0*3600.0
          ENDIF
 C
 C        COMPUTE NEXT TIMESTEP
@@ -379,7 +376,7 @@ C
       IF (GPHS) THEN
          GCTR = GCTR + 1
 C         CALL PLOTS(0,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN)
-         CALL PRGRIDP(WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN,GCTR)
+         CALL PRGRIDP(MOUNT,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN,GCTR)
       ENDIF
 C
 C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''        
