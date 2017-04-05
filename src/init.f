@@ -185,6 +185,13 @@ C
    95    CONTINUE                                                               
   100 CONTINUE                                                                  
 C                                                                               
+C     SET HRAD AND TAURAD
+      IF (FORCED) THEN
+         HRAD = PHIBAR/GRAV
+         TAURAD = 3600.0*24.0
+      ENDIF
+C
+C
       RETURN
 C
       ELSE IF (ICOND .EQ. 3) THEN
@@ -498,19 +505,7 @@ C
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
          DO 805 I = 1, NLON
-            RLON = GLON(I)
-            IF (RLAT .GT. 0.0) THEN
-               COST=COS(RLAT)
-               SINT=SIN(RLAT)
-               HBAMP = ((COST/SINT)*(SIN(PI/4.0)/COS(PI/4.0)))**2
-               HB = HBAMP * EXP(1 - HBAMP)
-            ELSE
-               HB = 0.0
-            ENDIF   
-            HC = SIN(RLON)
-            HASYM = 720.0*HB*HC
             MOUNT(I,J) = HSYM
-C            MOUNT(I,J) = 0.0
             PIC12(I,J) = MOUNT(I,J)
  805     CONTINUE 
   810 CONTINUE
@@ -552,18 +547,17 @@ C
 C           FREE SURFACE HEIGHT (INCLUDE MOUNTAINS)
 C
             PIC12(I,J) = PHI0-PHIAMP*SINT**2/GRAV
-C           PIC12(I,J) = PHI0
-C            PIC12(I,J) = PHI0 + (25/(2*GRAV) + OMEGA*A*5/GRAV)*(COST)**2
-C     $      +(4*33*5/(192*GRAV)+4*A*33/GRAV)*(9*COS(2*RLAT)-COS(6*RLAT))
-C     $      +(16*33*33/(153600*GRAV))*(150*(COS(2*RLAT))-25*COS(6*RLAT)
-C     $      +3*COS(10*RLAT))
-C            PIC12(I,J) = 1000-(SINT**2/GRAV)*(OMEGA*A*UBAR+UBAR**2/2.0)
             DIC12(I,J) = 0.0
             EIC12(I,J) = ETAAMP*SINT
  815    CONTINUE
  820  CONTINUE
 C
 C      WRITE(6,'(8E15.6)') MOUNT
+C     SET TAURAD AND HRAD
+      HRAD= 4000.0
+      TAURAD = 3600.0*24.0
+C
+C
       RETURN
 C
 C----------------------------------------------------------------------
