@@ -63,7 +63,7 @@ C
       INTEGER I,J
       REAL TMSHFT, DFDM, AI, A2I, RLAT, SNJ, CSJ, COR, SRCSJ,
      $     TMPRY, CSJI, CSJ2I, ACSJI, AACSJI, ACSJ2I, RLON,
-     $     TAURAD, HRAD, PHITEMPORARY
+     $     PHITEMPORARY
 C
 C----- External Functions ----------------------------------------------
 C
@@ -82,13 +82,6 @@ C
 C     
       IF (ICOND .NE. 4) THEN 
 C
-C     TAURAD = 1 DAY , HRAD = 4000.0
-         TAURAD = 24.0*3600.0
-         IF (ICOND .EQ. 2) THEN
-            HRAD = 23171.0/GRAV
-         ELSE IF (ICOND .EQ. 8) THEN
-            HRAD = 4000.0
-         ENDIF
 C     PHIFCG IS G*H-FORCING (FLUID DEPTH FORCING)
 C     NEED TO TRANSFORM HRAD INTO PHI VARIABLE (GRAV*HRAD)
 C     PHI ARRAY IS CURRENTLY PHI'=PHI-PHIBAR (SEE STSWM CODE
