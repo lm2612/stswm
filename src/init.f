@@ -400,8 +400,9 @@ C
 C     INITIAL CONDITIONS
 C
       PHI0 = 5960.0
+      PHI0 = 4000.0
 C     ONLY THING CHANGED IS UBAR WAS 20M/S, NOW SET TO 0:
-      UBAR = 0.0
+      UBAR = 20.0
 C
       SINA = 0.0
       COSA = 1.0
@@ -500,7 +501,7 @@ C     SET MOUNTAIN SURFACE
 C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
-      MOUNTA = 2000.0
+      MOUNTA = 2500.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
@@ -518,7 +519,7 @@ C
 C
 C     INITIAL CONDITIONS
 C
-      PHI0 = 4000.0
+      PHI0 = 5000.0
       UBAR = 0.0
 C
 C
