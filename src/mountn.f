@@ -68,7 +68,7 @@ C     INTRODUCE TAUTMP FOR THIS. MEASURED IN DAYS
 C
       TAUTMP = MOD(TAU/24.0,20.0)
 C
-      MOUNTA = 2000.0
+      MOUNTA = 2500.0
       DO 200 J=1,NLAT
          RLAT = GLAT(J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
@@ -93,7 +93,7 @@ C     LATITUDE DEPENDENT TERM (B)
             ENDIF
 C     LONGITUDE DEPENDENT TERM (C)
             HC = SIN(RLON)
-            HASYM = 450.0*HA*HB*HC
+            HASYM = 720.0*HA*HB*HC
             MOUNT(I,J) = HSYM+HASYM
             MOUNTTMP(I,J)=MOUNT(I,J)
  100      CONTINUE
