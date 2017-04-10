@@ -16,14 +16,15 @@ C***********************************************************************
      $    PHICON(NLAT),PHIA(NLAT),PHIB(NLAT),PHIC(NLAT),
      $    UIC12(NLON+2,NLAT), VIC12(NLON+2,NLAT), PIC12(NLON+2,NLAT),
      $    DIC12(NLON+2,NLAT), EIC12(NLON+2,NLAT),
-     $    MOUNT(NLON+2,NLAT), UCON(NLAT), VCON(NLAT)
+     $    MOUNT(NLON+2,NLAT), UCON(NLAT), VCON(NLAT), 
+     $    MOUNTOLD(NLON+2,NLAT)
       COMPLEX TOPOSC(NALP)
 C
       COMMON  / CONST2 / R
       COMMON  / CONST2 / ALFA, SIGMA, RLAT0, RLON0, PHI0, K, OMG, 
      $    PHICON,PHIA,PHIB,PHIC,
      $    UIC12, VIC12, PIC12, DIC12, EIC12,
-     $    MOUNT, UCON, VCON
+     $    MOUNT, UCON, VCON, MOUNTOLD
       COMMON  / CONST2 / TOPOSC
 C***********************************************************************
 C* END INCLUDE FILE                                                    *        
