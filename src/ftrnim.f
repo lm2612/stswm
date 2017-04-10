@@ -138,7 +138,7 @@ C
             TRMF(I,J) = (UCOS(I,J)**2+VCOS(I,J)**2)*FAC
      $                + PHI(I,J,LNM1)/2.0
             IF (FTOPO) THEN
-               TRMF(I,J) = TRMF(I,J) + GRAV*MOUNT(I,J)
+               TRMF(I,J) = TRMF(I,J) + GRAV*MOUNTOLD(I,J)
             ENDIF
 C        
 C           DIVERGENCE (OLD TIME LEVEL & FORCING)
