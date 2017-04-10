@@ -161,6 +161,7 @@ C
 C     INITIALIZATION ROUTINE FOR TEST CASES 
 C                                                                               
       CALL INIT
+      MOUNTOLD = MOUNT
 C
 C     INITIALIZE FIELD VARIABLES AT TIME = 0.0
 C
@@ -302,8 +303,9 @@ C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 C                                                                               
 C     MAIN COMPUTATIONAL CONTROL                                                
 C                                                                               
+      TAU    = NSTEP*DT
   500 NSTEP  = NSTEP + 1                                                        
-      TAU    = NSTEP*DT/3600.0                                             
+      TAU    = TAU + DT/3600.0
       IF (LDIFF) THEN
 C
 C        READ DATA FROM FILE
@@ -311,11 +313,15 @@ C
          CALL ANLYTC(LVLS,LN,NSTEP*DT,7,WS1,WS2,WS3,DIV,ZETA)
 C
       ELSE
+         MOUNTOLD = MOUNT
 C
-C        RECALCULATE MOUNT FOR CASE 8 IF MORE THAN 20 DAYS
+C        MAIN EXPERIMENT AFTER 20 DAYS OF SPIN UP
+C        RECALCULATE MOUNT FOR CASE 8 EVERY TIMESTEP
+C
          IF ((ICOND .EQ. 8) .AND. (TAU .GE. 20.0*24.0)) THEN
             CALL MOUNTN
             TAURAD = 20.0*24.0*3600.0
+            DT = 120.0
          ENDIF
 C
 C        COMPUTE NEXT TIMESTEP
@@ -329,15 +335,38 @@ C
 C
 C           LATITUDE = RLAT = GLAT(J)
 C
+            MAXV = 0.
             DO 90 I=1,NLON
                WS1(I,J) = UCOS(I,J)/COS(RLAT)
                WS2(I,J) = VCOS(I,J)/COS(RLAT)
                WS3(I,J) = (PHI(I,J,LN) + PHIBAR)/GRAV 
+               VLEN = SQRT(WS1(I,J)**2+WS2(I,J)**2)
+               IF (VLEN .GT. MAXV) THEN
+                  MAXV = VLEN
+               ENDIF
                IF (FTOPO) THEN
                   WS3(I,J) = WS3(I,J) + MOUNT(I,J)
                ENDIF
    90       CONTINUE
   100    CONTINUE
+C
+C     COMPUTE COURANT NUMBER
+C
+C
+         IF (SITS) THEN
+            COUR = MAXV*DT*KK/A
+         ELSE
+            COUR = SQRT(PHIBAR)*DT*KK/A
+         ENDIF
+C
+C      COURANT NUMBER WARNING
+C
+         IF (COUR .GE. 1.0) THEN
+            WRITE(0,146) COUR,TAU,DT
+ 146         FORMAT(/,'COURANT NUMBER = ',0PF8.4,
+     $           /, 'AT TIME = ',0PF8.5,' WITH DT = ', 0PF8.4)
+         ENDIF
+C
       ENDIF
 C
 C     PLOT FIELD VALUES ?
