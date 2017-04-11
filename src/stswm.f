@@ -321,7 +321,6 @@ C
          IF ((ICOND .EQ. 8) .AND. (TAU .GE. 20.0*24.0)) THEN
             CALL MOUNTN
             TAURAD = 20.0*24.0*3600.0
-            DT = 120.0
          ENDIF
 C
 C        COMPUTE NEXT TIMESTEP
