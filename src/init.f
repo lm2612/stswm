@@ -63,8 +63,8 @@ C
 C
 C     GRID LATITUDE AND LONGITUDE
 C
-      EXTERNAL GLAT, GLON
-      REAL GLAT, GLON
+      EXTERNAL GLAT, GLON, WEIGHT
+      REAL GLAT, GLON, WEIGHT
 C
 C     QUADRATURE ROUTINE
 C
@@ -502,12 +502,15 @@ C     ZONALLY SYMMETRIC PART, HEIGHT = 2500M
 C 
       FTOPO = .TRUE.
       MOUNTA = 2500.0
+      PHI0 = 0.0
       DO 810 J = 1, NLAT
          RLAT = GLAT(J)
+         GWTS = WEIGHT(1,J)
          HSYM=MOUNTA*(1-EXP(-0.69*((RLAT-PI/2.0)/(PI/6.0))**2))
          DO 805 I = 1, NLON
             MOUNT(I,J) = HSYM
             PIC12(I,J) = MOUNT(I,J)
+         PHI0 = PHI0 + (MOUNT(I,J)+4000.0)*GWTS
  805     CONTINUE 
   810 CONTINUE
 C
@@ -519,7 +522,6 @@ C
 C
 C     INITIAL CONDITIONS
 C
-      PHI0 = 5000.0
       UBAR = 0.0
 C
 C
