@@ -157,7 +157,8 @@ C      UBAR = 20.0
 C      PHI0 = 5690.0*GRAV
 C
 C     ORIGINAL INITIAL CONDITIONS FOR 2:
-      UBAR = (2.0*PI*A)/(12.0*24.0*3600.0)
+C      UBAR = (2.0*PI*A)/(12.0*24.0*3600.0)
+      UBAR = 0.0
       PHI0 = 2.94E4
 C
       SINA = SIN(ALPHA)

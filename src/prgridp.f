@@ -67,7 +67,7 @@ C
 C     MODEL CHARACTERIZATION
 C
       WRITE(MODEL,600) ICOND,CHEXP,STRUNC,TAU,INT(DT)
-  600 FORMAT('TEST ',I2,',EXP.',A4,',',A6,',T=',F5.1,',DT=',I4)
+  600 FORMAT('TEST ',I2,',EXP.',A4,',',A6,',T=',F6.1,',DT=',I4)
 c      WRITE(MODEL,'(2I8)') L3D,LN
 C
 C---- Setup longitude and latitude arrays for output

@@ -362,8 +362,8 @@ C      COURANT NUMBER WARNING
 C
          IF (COUR .GE. 1.0) THEN
             WRITE(0,146) COUR,TAU,DT
- 146         FORMAT(/,'COURANT NUMBER = ',0PF8.4,
-     $           /, 'AT TIME = ',0PF8.5,' WITH DT = ', 0PF8.4)
+ 146         FORMAT(/,'COURANT NUMBER = ',0PF8.3,
+     $           /, 'AT TIME = ',0PF6.1,' WITH DT = ', 0PF8.4)
          ENDIF
 C
       ENDIF
@@ -400,8 +400,9 @@ C'
 C
 C'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 C     STANDARD GRAPHICAL OUTPUT
+C     EDITED:  ONLY OUTPUT AFTER SPIN-UP AFTER 20 DAYS IF TEST 8 AND FORCED:
 C
-      IF (GPHS) THEN
+      IF ((GPHS) .AND. ((ICOND .NE. 8) .OR. (TAU .GE. 20.0*24.0))) THEN
          GCTR = GCTR + 1
 C         CALL PLOTS(0,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN)
          CALL PRGRIDP(MOUNT,WS3,WS4,WS1,WS2,ZETA,DIV,LVLS,LN,GCTR)

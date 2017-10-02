@@ -18,7 +18,7 @@ rm stderr.${EXPERIMENT};
 #
 # execute model
 #
-../src/stswm < exp.${EXPERIMENT} \
+~/bin/stswm < exp.${EXPERIMENT} \
              >> stdout.${EXPERIMENT} \
              2>> stderr.${EXPERIMENT};
 #
